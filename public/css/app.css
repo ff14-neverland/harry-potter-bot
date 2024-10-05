@@ -1,0 +1,40 @@
+body{
+  font-size: 16px;
+  color: black;
+  font-family: "Noto Sans TC", OpenSans, Microsoft YaHei, Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.navbar{
+  padding: 1.1rem 1rem;
+}
+
+.navbar-nav{
+  flex-direction: row;
+}
+
+.main-content{
+  margin-top: 20px;
+  padding: 2em;
+}
+
+.battle-result{
+   margin-top: 50px;
+}
+
+.chara-status{
+  margin-top: 30px;
+}
+
+.status-text{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px){
+  .battle-result table th:nth-child(1), .battle-result table th:nth-child(2){
+    display: none;
+  }
+  .battle-result table tr td:nth-child(1), .battle-result table tr td:nth-child(2){
+    display: none;
+  }
+}
