@@ -14,5 +14,12 @@
 */
 
 //API Part
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
 $router->get('status', ['uses' => 'ApiController@showStatus']);
 $router->get('battle', ['uses' => 'ApiController@startBattle']);
+
+//UI Part
+$router->get('/', ['uses' => 'UiController@showIndex']);
+$router->post('/ui/battle', ['uses' => 'UiController@getBattleResult']);
