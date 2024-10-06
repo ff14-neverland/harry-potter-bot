@@ -10,6 +10,7 @@ class CommonHelper {
     ->first();
     $status_info = [
       '名稱' => $chara_status->name,
+      'HP' => $chara_status->hp,
       '攻擊' => $chara_status->atk,
       '防禦' => $chara_status->def,
       '速度' => $chara_status->speed,
@@ -49,6 +50,9 @@ class CommonHelper {
 
     $real_hit = ($magic_status->hit + $chara1_status->speed) - ($chara2_status->speed *2);
     $real_critical = $magic_status->critical - (($chara2_status->def * 2) - $chara1_status->atk);
+    if($real_critical < 0 ){
+      $real_critical = 0;
+    }
     $real_damage = ($chara1_status->atk - $chara2_status->def + $magic_status->atk);
 
     $battle_result = [
