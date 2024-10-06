@@ -15,18 +15,14 @@ class ApiController extends Controller {
   }
 
   public function startBattle(Request $request){
-    $chara1 = $request->get('chara1');
-    $chara2 = $request->get('chara2');
+    $data = $request->all();
+    $chara1 = $data['chara1'];
+    $chara2 = $data['chara2'];
+    $magic = $data['magic'];
 
     //进攻方
-    $chara1_result = CommonHelper::getBattleResult($chara1, $chara2);
-    //反击方
-    $chara2_result = CommonHelper::getBattleResult($chara2, $chara1);
+    $battle_result = CommonHelper::getBattleResult($chara1, $magic, $chara2);
 
-    $battle_result = [
-      'chara1' => $chara1_result,
-      'chara2' => $chara2_result,
-    ];
     return response()->json($battle_result);
   }
 }
